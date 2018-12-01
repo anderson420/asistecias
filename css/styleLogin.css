@@ -1,0 +1,98 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 650px;
+	width: 1350px;
+	background: url('../img/salon.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	font-family: verdana;
+}
+
+
+
+#espacioLogin {
+	width: 350px;
+	height: 450px;
+	background: #E4E3E3;
+	color: #fff;
+	padding: 80px 40px;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	border-radius: 20px;
+}
+
+#espacioLogin input[type="text"], input[type="password"]{
+	border: none;
+	border-bottom: 1px solid white;
+	background:transparent;
+	outline: none;
+	height: 50px;
+	font-size: 15px;
+}
+
+#boton{
+	border: none;
+	margin-top: 15px;
+	height: 50px;
+	background-color: #66CCCC;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 10px;
+	color: white;
+	outline: none;
+}
+
+#espacioLogin input[type="submit"]{
+	border: none;
+	margin-top: 15px;
+	height: 50px;
+	background-color: #4F86F6;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 10px;
+	color: white;
+	outline: none;
+}
+
+#espacioLogin input[type="submit"]:hover {
+	background-color: #C2C2C2;
+	color: black;
+	cursor: pointer;
+}
+
+#espacioLogin p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #4F86F6;
+}
+
+#espacioLogin input {
+	margin-bottom: 25px;
+	width: 100%;
+	color: white;
+}
+
+#imagenLogin {
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: calc(50% - 60px);
+}
+
+a {
+	font-size: 15px;
+	color: #66CCCC;
+}
+
+a:hover{
+	color:yellow;
+}

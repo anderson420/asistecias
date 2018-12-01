@@ -1,0 +1,74 @@
+*{
+    font-family: 'Open Sans';
+}
+
+.titulo{
+    margin-left: 15px;
+}
+
+.selectDiv{
+	margin-top: 20px !important;
+}
+
+#modal1{
+	height: 20% !important;
+	overflow-y: hidden !important;
+	top: -20% !important;
+}
+
+nav{
+    background-color: #26a69a;
+    font-family: "Verdana", Times, serif;
+}
+
+h5{
+	margin-left: 15px;
+	/*font-family: "Times New Roman", Times, serif;*/
+	font-weight: bold;
+}
+
+h6{
+	margin-left: 15px;
+	/*font-family: "Times New Roman", Times, serif;*/
+}
+
+DameLaFechaHora{
+	margin-left: 15px;
+	/*font-family: "Times New Roman", Times, serif;*/
+}
+
+/*
+#card{
+	margin: 25px 400px 50px 20px;
+}
+
+.imagen{
+	margin: 10px 350px 50px 50px;
+}
+*/
+
+#card{
+    text-align: center;
+}
+
+
+.done,
+.clear{
+    font-size: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    color: gray;
+}
+
+.listButton{
+    margin: auto;
+    display: block;
+    width: 20%;
+    margin-bottom: 30px;
+}
+
+footer{
+    background-color: #26a69a !important;
+}

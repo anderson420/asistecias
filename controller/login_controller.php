@@ -1,0 +1,33 @@
+<?php
+
+	require_once("../model/usuarios_model.php");
+	require_once("usuario_controller.php");
+
+	$usuario = new Usuarios_model();
+	$matrizUsuarios = $usuario->getUsuarios();
+
+	$id = $_POST['codigo'];
+	$pass = $_POST['pass'];
+
+	$encontro = False;
+
+	foreach ($matrizUsuarios as $registro) {
+		if($registro["idprofesores"] == $id and $registro['contrasena'] == $pass){
+			$usuario1 = new usuario($registro["idprofesores"], $registro["primerNombre"], $registro["segundoNombre"], $registro["primerApellido"], $registro["segundoApellido"], $registro["contrasena"], $registro["direccion"], $registro["telefono"], $registro["email"], $registro["dia_nacimiento"], $registro["mes_nacimiento"], $registro["anio_nacimiento"]);
+
+			$encontro = True;
+			break;
+		}
+	}
+
+	if($encontro){
+		header("Location: ../view/usuarios_view.php");
+
+		session_start();
+		$_SESSION['usuario'] = serialize($usuario1);
+	}
+	else{
+		header("Location: ../index.php"); //NO Encontro el usuario redirecciono a misma pagina
+	}
+
+?>
