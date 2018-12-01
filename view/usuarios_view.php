@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+	<script src="../js/ajax.js"></script>
     <link rel="stylesheet" href="../css/materialize.css">
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="shortcut icon" href="../img/faviconn.ico">
@@ -86,8 +86,8 @@
 
 	<div class="row selectDiv">
 		<div class="selectDiv input-field col offset-s3 s6">
-		  <select>
-			  <option value="1" disabled selected>Escoga una opcion</option>
+		  <select onChange="showHint(this.value,this)"  >
+			  <option value="" disabled selected>Escoga una opcion</option>
 			  <?php
 		        require_once("../model/cursos_model.php");
 
@@ -106,6 +106,7 @@
 	</div>
 
 	<?php
+    /*
       require_once("../model/cursos_model.php");
       require_once("../model/usuarios_model.php");
 
@@ -126,9 +127,11 @@
       	echo '<h6> Salon: '.$registro['salon'].'</h6>';
       	echo '<h6> Hora: '.$registro['hora'].'</h6>';
       }
-
+      */
     ?>
-
+      <div id="respuestaajax">
+      
+      </div>
     <h6>
         <script>
             DameLaFechaHora();

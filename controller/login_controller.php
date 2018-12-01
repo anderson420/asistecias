@@ -28,7 +28,9 @@
 		header("Location: ../view/usuarios_view.php");
 	}
 	else{
-		header("Location: ../index.php"); //NO Encontro el usuario redirecciono a misma pagina
+	
+		echo '<script>  alert("CONTRSEÑA ERRONEA"); location.href= "../index.php"</script>';
+		
 	}
 
 ?>
