@@ -13,12 +13,15 @@ $(document).ready(function(){
 
 
     $(document).on('click','.listButton',function(){
-        // Logica del boton de listar
+		// Logica del boton de listar
+		
+
     })
 
 	$('select').on('change', function (e) {
 	    var optionSelected = $("option:selected", this);
-	    var valueSelected = this.value;
+		var valueSelected = this.value;
+		console.log(optionSelected)
 
 
 

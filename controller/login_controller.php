@@ -29,7 +29,7 @@
 	}
 	else{
 	
-		echo '<script>  alert("CONTRSEÑA ERRONEA"); location.href= "../index.php"</script>';
+		echo '<script>  alert("CONTRSEÑA ERRONEA") ;document.getElementById("boton").onclick= function(e){ e.preventDefault()};  </script>';
 		
 	}
 
