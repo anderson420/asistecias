@@ -47,8 +47,26 @@
 			return $this->usuarios;
 		}
 
-		public function updatePassword($newPassword){
-			$consulta = $this->db->query("UPDATE profesores SET contrasena = $newPassword WHERE idprofesores > 0");
+		public function updatePassword($newPassword,$idprofesor){
+			
+			try 
+			{
+				$sql = "UPDATE profesores 
+						SET contrasena = ?
+						WHERE idprofesores = ?;";
+	
+				$this->db->prepare($sql)
+					 ->execute(
+					array(
+						$newPassword,
+						$idprofesor
+						
+						)
+					);
+			} catch (Exception $e) 
+			{
+				die($e->getMessage());
+			}
 
 			/*while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
 			{

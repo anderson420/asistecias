@@ -70,14 +70,14 @@
 
 		<!-- Modal Structure -->
 	<div id="modal1" class="modal">
-	<form class="passwordForm">
-	  <div class="modal-content">
+	<form class="passwordForm" method="post" action="../controller/changePassword.php">
+	  <div class="modal-content" >
 			<div class="row">
 		        <div class="input-field col s10">
 		          <input required placeholder="Contraseña" id="new_password" type="text" name="password" class="validate">
 		          <label for="new_password">Nueva Contraseña</label>
 		        </div>
-				<button type="submit" class="col s2 waves-light btn waves-effect waves-green btn-flat">Enviar</button>
+				<button type="submit" class="col s2 waves-light btn waves-effect waves-green btn-flat" >Enviar</button>
 			</div>
 	  </div>
   	</form>

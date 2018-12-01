@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
 include_once('../model/usuarios_model.php');
 
 if(isset($_POST['newPassword'])){
@@ -7,9 +7,9 @@ if(isset($_POST['newPassword'])){
 
 
   $profesor = new usuarios_model();
-  $profesor->updatePassword($password);
+  $profesor->updatePassword($password, $_SESSION['id_usuario']);
 
-	echo $password;
+	
 }
 
 
