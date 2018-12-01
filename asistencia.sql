@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2018 a las 20:24:24
+-- Tiempo de generación: 02-12-2018 a las 00:53:08
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -34,6 +34,14 @@ CREATE TABLE `cursos` (
   `creditos` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`idcursos`, `nombre`, `creditos`) VALUES
+(1, 'programación para web XD', '4'),
+(2, 'Kevin de maria eugenia', '3');
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +52,13 @@ CREATE TABLE `cursos_has_estudiantes` (
   `cursos_idcursos` int(11) NOT NULL,
   `estudiantes_idestudiantes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cursos_has_estudiantes`
+--
+
+INSERT INTO `cursos_has_estudiantes` (`cursos_idcursos`, `estudiantes_idestudiantes`) VALUES
+(1, 0);
 
 -- --------------------------------------------------------
 
@@ -60,6 +75,13 @@ CREATE TABLE `estudiantes` (
   `correo` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`idestudiantes`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `correo`) VALUES
+(0, 'anderson', NULL, 'hernandez', 'pacheco', 'ande42061@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -70,7 +92,8 @@ CREATE TABLE `lista_asistencia` (
   `id_lista_asistencia` int(11) NOT NULL,
   `tema` varchar(45) NOT NULL,
   `cursos_idcursos` int(11) NOT NULL,
-  `fecha_hora` datetime NOT NULL
+  `fecha_hora` datetime NOT NULL,
+  `fecha_hora_final` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -123,12 +146,20 @@ CREATE TABLE `profesores` (
   `primerApellido` varchar(45) NOT NULL,
   `segundoNombre` varchar(45) DEFAULT NULL,
   `segundoApellido` varchar(45) DEFAULT NULL,
+  `contrasena` varchar(25) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `dia_nacimiento` varchar(45) NOT NULL,
   `mes_nacimiento` varchar(45) NOT NULL,
   `anio_nacimiento` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `profesores`
+--
+
+INSERT INTO `profesores` (`idprofesores`, `primerNombre`, `email`, `primerApellido`, `segundoNombre`, `segundoApellido`, `contrasena`, `direccion`, `telefono`, `dia_nacimiento`, `mes_nacimiento`, `anio_nacimiento`) VALUES
+(0, 'johan', 'adn@xd.com', 'perez', 'alfonzo', NULL, 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980');
 
 -- --------------------------------------------------------
 
@@ -142,6 +173,14 @@ CREATE TABLE `profesores_has_cursos` (
   `salon` varchar(45) NOT NULL,
   `hora` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `profesores_has_cursos`
+--
+
+INSERT INTO `profesores_has_cursos` (`profesores_idprofesores`, `cursos_idcursos`, `salon`, `hora`) VALUES
+(0, 1, 'sierra - 104', '14:00'),
+(0, 2, 'sierra - 103', '13:00');
 
 --
 -- Índices para tablas volcadas
@@ -219,7 +258,7 @@ ALTER TABLE `profesores_has_cursos`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `idcursos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcursos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_asistencia`
@@ -261,8 +300,8 @@ ALTER TABLE `lista_asistencia_estudiantes`
 -- Filtros para la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  ADD CONSTRAINT `fk_mensajes_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_mensajes_profesores1` FOREIGN KEY (`profesores_idprofesores`) REFERENCES `profesores` (`idprofesores`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_mensajes_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_mensajes_profesores1` FOREIGN KEY (`profesores_idprofesores`) REFERENCES `profesores` (`idprofesores`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `mensaje_estudiante`
