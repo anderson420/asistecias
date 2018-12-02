@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2018 a las 00:53:08
+-- Tiempo de generación: 02-12-2018 a las 02:32:39
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -92,8 +92,9 @@ CREATE TABLE `lista_asistencia` (
   `id_lista_asistencia` int(11) NOT NULL,
   `tema` varchar(45) NOT NULL,
   `cursos_idcursos` int(11) NOT NULL,
-  `fecha_hora` datetime NOT NULL,
-  `fecha_hora_final` datetime NOT NULL
+  `fecha` date NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_final` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
