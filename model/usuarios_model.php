@@ -23,6 +23,17 @@
 			return $this->usuarios;
 		}
 
+		public function getEstudiantes(){
+			$consulta = $this->db->query("SELECT * FROM estudiantes");
+
+			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}
+
+			return $this->usuarios;
+		}
+
 		public function get_cursos(){
 
 			$consulta = $this->db->query("SELECT * FROM profesores_has_cursos");

@@ -21,11 +21,38 @@
 			break;
 		}
 	}
-
 	if($encontro){
 		
 
 		header("Location: ../view/usuarios_view.php");
+	}
+	else{
+	
+		echo '<script>  alert("CONTRSEÑA ERRONEA") ;document.getElementById("boton").onclick= function(e){ e.preventDefault()};  </script>';
+		
+	}
+	$matrizUsuarios = $usuario->getEstudiantes();
+
+	$id = $_POST['codigo'];
+	$pass = $_POST['pass'];
+
+	$encontro = False;
+
+	foreach ($matrizUsuarios as $registro) {
+		if($registro["idestudiantes"] == $id and $registro['contrasena'] == $pass){
+			session_start();
+			$_SESSION['nombre'] = $registro["primerNombre"];
+			$_SESSION['apellido'] = $registro["primerApellido"];
+			$_SESSION['correo'] = $registro["correo"];
+			$_SESSION['id_usuario'] = $id ;
+			$encontro = True;
+			break;
+		}
+	}
+	if($encontro){
+		
+
+		header("Location: ../view/estudiante_view.php");
 	}
 	else{
 	
