@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2018 a las 02:32:39
+-- Tiempo de generación: 02-12-2018 a las 19:51:28
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -58,7 +58,8 @@ CREATE TABLE `cursos_has_estudiantes` (
 --
 
 INSERT INTO `cursos_has_estudiantes` (`cursos_idcursos`, `estudiantes_idestudiantes`) VALUES
-(1, 0);
+(1, 2),
+(1, 1234);
 
 -- --------------------------------------------------------
 
@@ -68,6 +69,7 @@ INSERT INTO `cursos_has_estudiantes` (`cursos_idcursos`, `estudiantes_idestudian
 
 CREATE TABLE `estudiantes` (
   `idestudiantes` int(11) NOT NULL,
+  `contrasena` varchar(11) NOT NULL,
   `primerNombre` varchar(45) NOT NULL,
   `segundoNombre` varchar(45) DEFAULT NULL,
   `primerApellido` varchar(45) NOT NULL,
@@ -79,8 +81,9 @@ CREATE TABLE `estudiantes` (
 -- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `estudiantes` (`idestudiantes`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `correo`) VALUES
-(0, 'anderson', NULL, 'hernandez', 'pacheco', 'ande42061@gmail.com');
+INSERT INTO `estudiantes` (`idestudiantes`, `contrasena`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `correo`) VALUES
+(2, 'admin', 'johan', 'asasda', 'dadsd', 'ddada', 'dada@hzhdd.com'),
+(1234, '1234', 'anderson', NULL, 'hernandez', 'pacheco', 'ande42061@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -97,6 +100,37 @@ CREATE TABLE `lista_asistencia` (
   `hora_final` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `lista_asistencia`
+--
+
+INSERT INTO `lista_asistencia` (`id_lista_asistencia`, `tema`, `cursos_idcursos`, `fecha`, `hora_inicio`, `hora_final`) VALUES
+(3, 'fasfasfasf', 1, '2018-12-12', '02:12:00', '14:12:00'),
+(4, 'fasfasfasf', 2, '2018-12-12', '02:12:00', '14:12:00'),
+(5, 'fffsf', 1, '2013-03-12', '01:23:00', '14:32:00'),
+(6, 'sdghshgdgg', 1, '1232-02-04', '00:12:00', '14:12:00'),
+(10, 'sasgsaghsaghsgh', 1, '6252-12-05', '12:21:00', '14:21:00'),
+(15, 'dsdsdsds', 1, '2012-02-12', '12:21:00', '00:22:00'),
+(16, 'hbsghytftrf', 1, '2016-02-14', '02:25:00', '12:21:00'),
+(17, 'hshjdgjsgdjhsgj', 1, '2017-12-12', '00:31:00', '12:29:00'),
+(18, 'tetywegyugyt', 1, '1452-04-12', '00:12:00', '00:12:00'),
+(19, '1bshjdbjsjhdhsgd', 1, '2017-02-14', '13:21:00', '12:41:00'),
+(20, 'qwqdqwd', 1, '2018-12-13', '12:21:00', '14:11:00'),
+(21, 'qwqdqwd', 1, '2018-12-13', '12:21:00', '14:11:00'),
+(22, 'qwqdqwd', 1, '2018-12-13', '12:21:00', '14:11:00'),
+(23, '3141414', 1, '2012-11-11', '12:12:00', '00:12:00'),
+(24, '3141414', 1, '2012-11-11', '12:12:00', '00:12:00'),
+(25, 'dwdwfcfa', 1, '2018-12-22', '00:12:00', '02:12:00'),
+(26, 'adadada', 1, '2018-12-29', '00:21:00', '00:12:00'),
+(27, '525612656515', 1, '2017-02-13', '00:31:00', '00:14:00'),
+(28, 'qwqeadqe1', 1, '2012-11-01', '00:12:00', '02:12:00'),
+(29, 'svaghsghag', 1, '2017-05-12', '12:11:00', '12:21:00'),
+(30, 'adeeqweq', 1, '1121-02-21', '02:12:00', '00:12:00'),
+(31, 'dytfytyt', 1, '2001-12-12', '00:12:00', '20:18:00'),
+(33, 'teres', 1, '2016-02-14', '02:12:00', '14:12:00'),
+(34, 'teres', 1, '2016-02-14', '02:12:00', '14:12:00'),
+(35, 'ytfwetqtyett', 1, '2018-12-28', '11:12:00', '12:22:00');
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +141,19 @@ CREATE TABLE `lista_asistencia_estudiantes` (
   `estudiantes_idestudiantes` int(11) NOT NULL,
   `lista_asistencia_id_lista_asistencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `lista_asistencia_estudiantes`
+--
+
+INSERT INTO `lista_asistencia_estudiantes` (`estudiantes_idestudiantes`, `lista_asistencia_id_lista_asistencia`) VALUES
+(2, 28),
+(2, 34),
+(2, 35),
+(1234, 27),
+(1234, 28),
+(1234, 34),
+(1234, 35);
 
 -- --------------------------------------------------------
 
@@ -265,7 +312,7 @@ ALTER TABLE `cursos`
 -- AUTO_INCREMENT de la tabla `lista_asistencia`
 --
 ALTER TABLE `lista_asistencia`
-  MODIFY `id_lista_asistencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lista_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
@@ -281,8 +328,8 @@ ALTER TABLE `mensajes`
 -- Filtros para la tabla `cursos_has_estudiantes`
 --
 ALTER TABLE `cursos_has_estudiantes`
-  ADD CONSTRAINT `fk_cursos_has_estudiantes_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_cursos_has_estudiantes_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cursos_has_estudiantes_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_cursos_has_estudiantes_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `lista_asistencia`
@@ -294,8 +341,8 @@ ALTER TABLE `lista_asistencia`
 -- Filtros para la tabla `lista_asistencia_estudiantes`
 --
 ALTER TABLE `lista_asistencia_estudiantes`
-  ADD CONSTRAINT `fk_lista_asistencia_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_lista_asistencia_lista_asistencia1` FOREIGN KEY (`lista_asistencia_id_lista_asistencia`) REFERENCES `lista_asistencia` (`id_lista_asistencia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_lista_asistencia_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_lista_asistencia_lista_asistencia1` FOREIGN KEY (`lista_asistencia_id_lista_asistencia`) REFERENCES `lista_asistencia` (`id_lista_asistencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `mensajes`
@@ -308,8 +355,8 @@ ALTER TABLE `mensajes`
 -- Filtros para la tabla `mensaje_estudiante`
 --
 ALTER TABLE `mensaje_estudiante`
-  ADD CONSTRAINT `fk_mensaje_estudiante_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_mensaje_estudiante_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_mensaje_estudiante_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_mensaje_estudiante_estudiantes1` FOREIGN KEY (`estudiantes_idestudiantes`) REFERENCES `estudiantes` (`idestudiantes`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `profesores_has_cursos`
