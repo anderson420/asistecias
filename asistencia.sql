@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2018 a las 19:51:28
+-- Tiempo de generación: 02-12-2018 a las 21:23:43
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -199,15 +199,16 @@ CREATE TABLE `profesores` (
   `telefono` varchar(45) NOT NULL,
   `dia_nacimiento` varchar(45) NOT NULL,
   `mes_nacimiento` varchar(45) NOT NULL,
-  `anio_nacimiento` varchar(45) NOT NULL
+  `anio_nacimiento` varchar(45) NOT NULL,
+  `usuarioFB` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `profesores`
 --
 
-INSERT INTO `profesores` (`idprofesores`, `primerNombre`, `email`, `primerApellido`, `segundoNombre`, `segundoApellido`, `contrasena`, `direccion`, `telefono`, `dia_nacimiento`, `mes_nacimiento`, `anio_nacimiento`) VALUES
-(0, 'johan', 'adn@xd.com', 'perez', 'alfonzo', NULL, 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980');
+INSERT INTO `profesores` (`idprofesores`, `primerNombre`, `email`, `primerApellido`, `segundoNombre`, `segundoApellido`, `contrasena`, `direccion`, `telefono`, `dia_nacimiento`, `mes_nacimiento`, `anio_nacimiento`, `usuarioFB`) VALUES
+(0, 'johan', 'adn@xd.com', 'perez', 'alfonzo', NULL, 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980', '');
 
 -- --------------------------------------------------------
 
