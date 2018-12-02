@@ -58,6 +58,7 @@
 </head>
 
 <body>
+
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo titulo">Registro de Asistencia</a>
@@ -157,7 +158,5 @@
     <script src="../js/jquery.js"></script>
 	<script src="../js/index.js"></script>
     <script src="../js/materialize.js"></script>
-
 </body>
-
 </html>
