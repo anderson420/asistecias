@@ -100,7 +100,10 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo titulo">Registro de Asistencia</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li></li>
+                <li>		<fb:login-button 
+			scope="public_profile,email"
+			onlogin="checkLoginState();">
+		</fb:login-button></li>
 				<li><a href="#modal1" class="changePassword modal-trigger">Cambiar Contraseña</a></li>
                 <li><a href="../model/logout.php">Cerrar Sesión</a></li>
             </ul>
