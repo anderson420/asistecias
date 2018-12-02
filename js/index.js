@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('.modal').modal();
-
 	$('#listButton').click(function(){
 		var estudiantes = [];
 		var selecteds = $("input:checked");
