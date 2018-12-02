@@ -11,9 +11,10 @@ $(document).ready(function(){
 		var fecha = $('#fecha').val();
 		var inicio = $('#horaInicio').val();
 		var final = $('#horaFinal').val();
-		console.log(tema, fecha, inicio, final);
+		var idcurso = $('#id_curso').val();
 		$.post("../controller/lista.php",
         {
+			idcurso,
 			estudiantes,
 			tema,
 			fecha,

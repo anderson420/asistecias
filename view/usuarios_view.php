@@ -84,7 +84,7 @@
 	</div>
 	<div class="row selectDiv">
 		<div class="selectDiv input-field col offset-s3 s6">
-		  <select onChange="showHint(this.value,this)"  >
+		  <select id="id_curso" onChange="showHint(this.value,this)"  >
 			  <option value="" disabled selected>Escoga una opcion</option>
 			  <?php
 		        require_once("../model/cursos_model.php");
@@ -93,7 +93,7 @@
 
 		        foreach ($matrizCurso as $registro) {
 		        	echo '<h5>'.$registro['nombre'].'</h5>';
-					echo '<option value="'.$registro['idcursos'].'">'.$registro[nombre].'</option>';
+					echo '<option value="'.$registro['idcursos'].'">'.$registro['nombre'].'</option>';
 		        }
 		      ?>
 		  </select>
