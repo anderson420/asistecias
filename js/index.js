@@ -22,7 +22,13 @@ $(document).ready(function(){
 			final
         },
         function(data, status){
-			console.log(data);
+			if(data==0){
+				M.toast({html: 'hubo un error!'});
+
+			}else if(data==1) {
+				M.toast({html: 'se ha subido con exito'});
+				location.reload(true);
+			}
 		});
 	});
 
