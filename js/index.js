@@ -8,9 +8,10 @@ $(document).ready(function(){
 			estudiantes.push(selecteds[i].name);
 		};
 		var tema = $('#tema').val();
-		var fecha = $('fecha').val();
+		var fecha = $('#fecha').val();
 		var inicio = $('#horaInicio').val();
 		var final = $('#horaFinal').val();
+		console.log(tema, fecha, inicio, final);
 		$.post("../controller/lista.php",
         {
 			estudiantes,
