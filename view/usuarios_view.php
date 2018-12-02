@@ -58,11 +58,49 @@
 </head>
 
 <body>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '284778465545572',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.2'
+        });
+        
+        FB.AppEvents.logPageView();   
+        
+    };
 
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    function conectar(response){
+		if("connected" == response.status){
+			$.post("controller/unir_facebook.php",
+			{
+				usuarioFB: response.authResponse.userID
+			},
+			function(data, status){
+				console.log(data);
+			});
+		}
+    }
+	function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+			conectar(response);
+		});
+	}
+    </script>
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo titulo">Registro de Asistencia</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li></li>
 				<li><a href="#modal1" class="changePassword modal-trigger">Cambiar Contraseña</a></li>
                 <li><a href="../model/logout.php">Cerrar Sesión</a></li>
             </ul>

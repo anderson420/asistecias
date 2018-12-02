@@ -32,15 +32,25 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
-    function hola(response){
-        console.log(response);
+    function login(response){
+		if("connected" == response.status){
+			console.log(response.authResponse.userID);
+			$.post("controller/login_controller.php",
+			{
+				usuarioFB: response.authResponse.userID
+			},
+			function(data, status){
+				if(data == 1){
+					location.href ="view/usuarios_view.php";
+				}else{
+					console.log(data);
+				}
+			});
+		}
     }
-    FB.getLoginStatus(function(response) {
-        hola(response);
-    });
 	function checkLoginState() {
 		FB.getLoginStatus(function(response) {
-			hola(response);
+			login(response);
 		});
 	}
     </script>
@@ -48,7 +58,7 @@
 		<img src="img/login1.png" id="imagenLogin">
 		<form action="controller/login_controller.php" method="POST">
 			<p>Identificacion</p>
-			<input type="text" name="codigo" placeholder="Ingrese una identificacion">
+			<input type="text" id="idcodigo" name="codigo" placeholder="Ingrese una identificacion">
 			<p>Contraseña</p>
 			<input type="password" name="pass" placeholder="Ingrese la contraseña">
 			<input type="submit" value="Ingresar" id="boton">
