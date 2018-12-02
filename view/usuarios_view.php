@@ -108,8 +108,29 @@
         </script>
     </h6>
     <div class="row estudiantesLista"></div>
-    <a id="listButton" class="waves-effect waves-light btn" name="lista"><i class="material-icons left">assignment</i>Listar</a>
-
+    <div class="container">
+        <div class="row">
+            <div class="input-field  col s6">
+                <input placeholder="Tema de la clase" id="tema" type="text" class="validate">
+                <label for="tema">Tema</label>
+            </div>
+            <div class="input-field  col s6">
+                <input placeholder="Fecha de la clase" id="fecha" type="date" class="validate">
+                <label for="fecha">Fecha</label>
+            </div>
+            <div class="input-field  col s6">
+                <input placeholder="Hora de finalización de la clase" id="horaInicio" type="time" class="validate">
+                <label for="horaInicio">Inicio</label>
+            </div>
+            <div class="input-field  col s6">
+                <input placeholder="Hora de finalización de la clase" id="horaFinal" type="time" class="validate">
+                <label for="horaFinal">Final</label>
+            </div>
+            <div class="col s4">
+                <a id="listButton" class="waves-effect waves-light btn" name="lista"><i class="material-icons left">assignment</i>Listar</a>
+            </div>
+        </div>
+    </div>
     <footer class="page-footer">
         <div class="container">
           <div class="row">
