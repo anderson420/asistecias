@@ -2,10 +2,26 @@ $(document).ready(function(){
 	$('.modal').modal();
 
 	$('#listButton').click(function(){
+		var estudiantes = [];
 		var selecteds = $("input:checked");
 		for(var i = 0; i < selecteds.length; i++){
-			console.log(selecteds[i].name);
-		}
+			estudiantes.push(selecteds[i].name);
+		};
+		var tema = $('#tema').val();
+		var fecha = $('fecha').val();
+		var inicio = $('#horaInicio').val();
+		var final = $('#horaFinal').val();
+		$.post("../controller/lista.php",
+        {
+			estudiantes,
+			tema,
+			fecha,
+			inicio,
+			final
+        },
+        function(data, status){
+			console.log(data);
+		});
 	});
 
 	$('select').on('change', function (e) {

@@ -13,10 +13,10 @@
 
   foreach ($matrizEstudiantes as $registro) {
 	echo '
-		<div class="col s4">
+		<div class="col s2">
 			<div class="card" id="card">
-				<div class="imagen">
-					<img src="../img/boy.png" width="300px">
+				<div class="card-image">
+					<img class="responsive-img" src="../img/boy.png" width="300px">
 				</div>
 				<div class="card-content">
 					<p>'.$registro['primerNombre'].' '.$registro['primerApellido'].'
