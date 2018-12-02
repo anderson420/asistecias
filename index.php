@@ -43,7 +43,7 @@
 				if(data == 1){
 					location.href ="view/usuarios_view.php";
 				}else{
-					console.log(data);
+					M.toast({html: 'No hay usuario con ese facebook.'});
 				}
 			});
 		}
