@@ -1,13 +1,9 @@
 <?php
   require_once("../model/estudiantes_model.php");
 
-
-
   if(isset($_POST['value'])){
 	  $id_curso = $_POST['value'];
   }
-
-
 
   //json_decode($id_curso);
   $estudiante = 0;
@@ -16,24 +12,26 @@
   $matrizEstudiantes = $estudiantes->get_estudiantes_curso($id_curso);
 
   foreach ($matrizEstudiantes as $registro) {
-
-	echo '<div class="col s4">';
-		echo '<div class="card" id="card">';
-			echo '<div class="imagen">';
-				echo '<img src="../img/boy.png" width="300px">';
-			echo "</div>";
-
-			echo '<div class="card-content">';
-				echo "<p name=$estudiante>".$registro['primerNombre']." ".$registro['primerApellido']."</p>";
-				echo "<p>".$registro['idestudiantes']."</p>";
-			echo "</div>";
-
-			echo '<div class="card-action">';
-				echo '<i class="material-icons done">done</i>';
-				echo '<i class="material-icons clear">clear</i>';
-			echo '</div>';
-		echo '</div>';
-	echo '</div>';
+	echo '
+		<div class="col s4">
+			<div class="card" id="card">
+				<div class="imagen">
+					<img src="../img/boy.png" width="300px">
+				</div>
+				<div class="card-content">
+					<p>'.$registro['primerNombre'].' '.$registro['primerApellido'].'
+				</div>
+				<div class="card-action">
+					<p>
+						<label>
+							<input name='.$registro['idestudiantes'].' type="checkbox" />
+							<span></span>
+						</label>
+					</p>
+				</div>
+			</div>
+		</div>
+	';
 
   }
 

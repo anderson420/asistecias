@@ -70,27 +70,24 @@
 
 		<!-- Modal Structure -->
 	<div id="modal1" class="modal">
-	<form class="passwordForm" method="post" action="../controller/changePassword.php">
-	  <div class="modal-content" >
-			<div class="row">
-		        <div class="input-field col s10">
-		          <input required placeholder="Contraseña" id="new_password" type="text" name="password" class="validate">
-		          <label for="new_password">Nueva Contraseña</label>
-		        </div>
-				<button type="submit" class="col s2 waves-light btn waves-effect waves-green btn-flat" >Enviar</button>
-			</div>
-	  </div>
-  	</form>
+	    <form class="passwordForm" method="post" action="../controller/changePassword.php">
+	        <div class="modal-content" >
+			    <div class="row">
+		            <div class="input-field col s10">
+		                <input required placeholder="Contraseña" id="new_password" type="text" name="password" class="validate">
+		                <label for="new_password">Nueva Contraseña</label>
+		            </div>
+				    <button type="submit" class="col s2 waves-light btn waves-effect waves-green btn-flat" >Enviar</button>
+			    </div>
+	        </div>
+  	    </form>
 	</div>
-
-
 	<div class="row selectDiv">
 		<div class="selectDiv input-field col offset-s3 s6">
 		  <select onChange="showHint(this.value,this)"  >
 			  <option value="" disabled selected>Escoga una opcion</option>
 			  <?php
 		        require_once("../model/cursos_model.php");
-
 		        $curso = new cursos_model();
 		        $matrizCurso = $curso->get_cursos();
 
@@ -98,57 +95,20 @@
 		        	echo '<h5>'.$registro['nombre'].'</h5>';
 					echo '<option value="'.$registro['idcursos'].'">'.$registro[nombre].'</option>';
 		        }
-
 		      ?>
 		  </select>
 		  <label>Seleccione el curso</label>
 		</div>
 	</div>
-
-	<?php
-    /*
-      require_once("../model/cursos_model.php");
-      require_once("../model/usuarios_model.php");
-
-      $id_curso = 1;
-
-      $curso = new cursos_model();
-      $matrizCurso = $curso->get_cursos_id($id_curso);
-
-      foreach ($matrizCurso as $registro) {
-      	echo '<h5>'.$registro['nombre'].'</h5>';
-      }
-
-      $profe = new Usuarios_model();
-      $matrizProfe = $profe->get_profesores_curso($id_curso);
-
-      foreach ($matrizProfe as $registro) {
-      	echo "<h6>".$registro['primerNombre']." ".$registro['primerApellido']."</h6>";
-      	echo '<h6> Salon: '.$registro['salon'].'</h6>';
-      	echo '<h6> Hora: '.$registro['hora'].'</h6>';
-      }
-      */
-    ?>
-      <div id="respuestaajax">
-      
-      </div>
+    <div id="respuestaajax"></div>
     <h6>
         <script>
             DameLaFechaHora();
 			$('select').formSelect();
         </script>
     </h6>
-
-
-
-
-    <div class="row estudiantesLista">
-
-
-            </div>
-        </div>
-	</div>
-    <a class="listButton waves-effect waves-light btn" name="lista"><i class="material-icons left">assignment</i>Listar</a>
+    <div class="row estudiantesLista"></div>
+    <a id="listButton" class="waves-effect waves-light btn" name="lista"><i class="material-icons left">assignment</i>Listar</a>
 
     <footer class="page-footer">
         <div class="container">
@@ -173,12 +133,6 @@
           </div>
         </div>
       </footer>
-
-    <script>
-
-    </script>
-
-
     <script src="../js/jquery.js"></script>
 	<script src="../js/index.js"></script>
     <script src="../js/materialize.js"></script>

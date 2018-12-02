@@ -1,30 +1,15 @@
 $(document).ready(function(){
 	$('.modal').modal();
 
-    $(document).on('click','.done',function(){
-        $(this).css({'color':'green'});
-        $(this).siblings().css({'color':'gray'});
-    })
-
-    $(document).on('click','.clear',function(){
-        $(this).css({'color':'red'});
-        $(this).siblings().css({'color':'gray'});
-    })
-
-
-    $(document).on('click','.listButton',function(){
-		// Logica del boton de listar
-		
-
-    })
+	$('#listButton').click(function(){
+		var selecteds = $("input:checked");
+		for(var i = 0; i < selecteds.length; i++){
+			console.log(selecteds[i].name);
+		}
+	});
 
 	$('select').on('change', function (e) {
-	    var optionSelected = $("option:selected", this);
 		var valueSelected = this.value;
-		console.log(optionSelected)
-
-
-
 		$.ajax({
 		    data: {"value" : valueSelected},
 		    type: "POST",
@@ -32,8 +17,6 @@ $(document).ready(function(){
 		}).done(function(data, textStatus, jqXHR ) {
 			$('.estudiantesLista').html(data);
 		});
-
-
 	});
 
 

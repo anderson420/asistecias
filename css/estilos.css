@@ -62,11 +62,11 @@ DameLaFechaHora{
     color: gray;
 }
 
-.listButton{
-    margin: auto;
-    display: block;
-    width: 20%;
-    margin-bottom: 30px;
+a#listButton{
+    margin: auto!important;
+    display: block!important;
+    width: 20%!important;
+    margin-bottom: 30px!important;
 }
 
 footer{
