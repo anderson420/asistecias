@@ -81,12 +81,16 @@
     
     function conectar(response){
 		if("connected" == response.status){
-			$.post("controller/unir_facebook.php",
+			$.post("../controller/add_FB.php",
 			{
 				usuarioFB: response.authResponse.userID
 			},
 			function(data, status){
-				console.log(data);
+                console.log(data);
+                if(data==1){
+                    M.toast({html: 'Vinculada'});
+
+                }
 			});
 		}
     }

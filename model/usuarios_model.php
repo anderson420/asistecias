@@ -57,6 +57,35 @@
 
 			return $this->usuarios;
 		}
+		public function uptadeFB($newFB,$idprofesor){
+			
+			try 
+			{
+				$sql = "UPDATE profesores 
+						SET usuarioFB = ?
+						WHERE idprofesores = ?;";
+	
+				$this->db->prepare($sql)
+					 ->execute(
+					array(
+						$newFB,
+						$idprofesor
+						
+						)
+					);
+					echo 1;
+			} catch (Exception $e) 
+			{
+				die($e->getMessage());
+			}
+
+			/*while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}*/
+
+			return "exito";
+		}
 
 		public function updatePassword($newPassword,$idprofesor){
 			
