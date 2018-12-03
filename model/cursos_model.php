@@ -12,9 +12,11 @@
 			$this->cursos = array();
 		}
 
-		public function get_cursos()
+		public function get_cursos($id)
 		{
-			$consulta = $this->db->query("SELECT * FROM cursos");
+			$consulta = $this->db->query("SELECT * 
+			FROM  profesores_has_cursos INNER JOIN cursos ON cursos.idcursos = profesores_has_cursos.cursos_idcursos
+			WHERE profesores_has_cursos.profesores_idprofesores =$id;");
 
 			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
 			{

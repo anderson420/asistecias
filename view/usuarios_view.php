@@ -89,7 +89,7 @@
 			  <?php
 		        require_once("../model/cursos_model.php");
 		        $curso = new cursos_model();
-		        $matrizCurso = $curso->get_cursos();
+		        $matrizCurso = $curso->get_cursos($_SESSION['id_usuario']);
 
 		        foreach ($matrizCurso as $registro) {
 		        	echo '<h5>'.$registro['nombre'].'</h5>';
@@ -150,10 +150,9 @@
               <p class="grey-text text-lighten-4">Creado por Hallel Sarid 2018 Programacion para web.</p>
             </div>
             <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
+            
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          
               </ul>
             </div>
           </div>

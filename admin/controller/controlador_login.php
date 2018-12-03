@@ -1,11 +1,12 @@
 <?php
     session_start();
 
-      $host_db = "localhost";
-      $user_db = "root";
-      $pass_db = "";
-      $db_name = "asistencia";
+      $host_db = "sql307.epizy.com";
+      $user_db = "epiz_23091224";
+      $pass_db = "6bnlY6g5A8udN";
+      $db_name = "epiz_23091224_asistencia";
 
+      
       $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
 
       if ($conexion->connect_error) {

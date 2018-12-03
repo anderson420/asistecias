@@ -14,7 +14,7 @@
 		}
 		public function getListas($id){
 
-			$consulta = $this->db->query("SELECT*FROM lista_asistencia inner join cursos on lista_asistencia.cursos_idcursos=cursos.idcursos where cursos_idcursos = $id ;");
+			$consulta = $this->db->query("SELECT*FROM lista_asistencia inner join cursos on lista_asistencia.cursos_idcursos=cursos.idcursos where cursos_idcursos = $id order by lista_asistencia.fecha DESC ;");
 
 			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
 			{

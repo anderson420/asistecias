@@ -81,7 +81,6 @@ if(!isset($_SESSION['usuario'])){
          $usuario = new Usuarios_model();
          $result=$usuario->getcurso($_SESSION['id_usuario'] );
 
-
          ?>
          <table>
         <thead>
