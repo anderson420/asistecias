@@ -1,4 +1,11 @@
 <?php 
+
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo "<script> window.location = '../index.php'; </script> ";
+}
+
 require_once('../controller/datatables_control.php');
 $result=$usuario->getListas( $_GET['id_curso']);
 
@@ -22,6 +29,7 @@ $result=$usuario->getListas( $_GET['id_curso']);
     <div  class="nav-wrapper">
       <a  class="brand-logo">VISTA DE LISTA DE CLASE EN DATATABLES</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="../model/logout.php">Cerrar Sesión</a>
       </ul>
     </div>
   </nav>

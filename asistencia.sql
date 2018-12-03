@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2018 a las 03:30:16
+-- Tiempo de generación: 03-12-2018 a las 07:48:27
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -39,6 +39,31 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`user`, `password`) VALUES
 ('admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_curso` int(11) NOT NULL,
+  `comenatrio` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_curso`, `comenatrio`) VALUES
+(2, 'hssdsggdssg'),
+(1, 'asdfsfafa'),
+(1, 'asdfsfafa'),
+(1, 'qrerwrwrwrwrwrrr'),
+(2, 'anderson XD'),
+(2, 'anderson XD'),
+(2, '2121'),
+(1, 'anderon XD');
 
 -- --------------------------------------------------------
 
@@ -223,7 +248,7 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`idprofesores`, `primerNombre`, `email`, `primerApellido`, `segundoNombre`, `segundoApellido`, `contrasena`, `direccion`, `telefono`, `dia_nacimiento`, `mes_nacimiento`, `anio_nacimiento`, `usuarioFB`) VALUES
-(2, 'johana', 'adn@xd.com', 'perezs', 'rfgdgfdgfd', 'fqwqff', 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980', '');
+(3, 'johana', 'adn@xd.com', 'perezs', 'rfgdgfdgfd', 'fqwqff', 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980', '');
 
 -- --------------------------------------------------------
 
@@ -243,8 +268,8 @@ CREATE TABLE `profesores_has_cursos` (
 --
 
 INSERT INTO `profesores_has_cursos` (`profesores_idprofesores`, `cursos_idcursos`, `salon`, `hora`) VALUES
-(2, 1, 'sierra - 104', '14:00'),
-(2, 2, 'sierra - 103', '13:00');
+(3, 1, 'sierra - 104', '14:00'),
+(3, 2, 'sierra - 103', '13:00');
 
 --
 -- Índices para tablas volcadas
@@ -255,6 +280,12 @@ INSERT INTO `profesores_has_cursos` (`profesores_idprofesores`, `cursos_idcursos
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`user`);
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD KEY `comentario_cursos` (`id_curso`);
 
 --
 -- Indices de la tabla `cursos`
@@ -345,6 +376,12 @@ ALTER TABLE `mensajes`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_cursos` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`idcursos`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cursos_has_estudiantes`
