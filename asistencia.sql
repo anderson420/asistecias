@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2018 a las 21:23:43
+-- Tiempo de generación: 03-12-2018 a las 03:30:16
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `asistencia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admin`
+--
+
+CREATE TABLE `admin` (
+  `user` varchar(10) NOT NULL,
+  `password` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`user`, `password`) VALUES
+('admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -58,8 +76,7 @@ CREATE TABLE `cursos_has_estudiantes` (
 --
 
 INSERT INTO `cursos_has_estudiantes` (`cursos_idcursos`, `estudiantes_idestudiantes`) VALUES
-(1, 2),
-(1, 1234);
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -82,8 +99,10 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`idestudiantes`, `contrasena`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `correo`) VALUES
-(2, 'admin', 'johan', 'asasda', 'dadsd', 'ddada', 'dada@hzhdd.com'),
-(1234, '1234', 'anderson', NULL, 'hernandez', 'pacheco', 'ande42061@gmail.com');
+(1, 'saasygasgas', 'dadyguasfghas', 'adsdad', 'adadad', 'adadad', 'dadada'),
+(2, 'admin', 'johanwqw', 'asasdasas', 'dadsd', 'ddada', 'dada@hzhdd.com'),
+(3, '112', '212', '212', '1212', '1212', '21212'),
+(4, 'dfas', 'sff', 'eqffqef', 'qwefqwfeqw', 'fwfwf', 'wefwef');
 
 -- --------------------------------------------------------
 
@@ -149,11 +168,7 @@ CREATE TABLE `lista_asistencia_estudiantes` (
 INSERT INTO `lista_asistencia_estudiantes` (`estudiantes_idestudiantes`, `lista_asistencia_id_lista_asistencia`) VALUES
 (2, 28),
 (2, 34),
-(2, 35),
-(1234, 27),
-(1234, 28),
-(1234, 34),
-(1234, 35);
+(2, 35);
 
 -- --------------------------------------------------------
 
@@ -208,7 +223,7 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`idprofesores`, `primerNombre`, `email`, `primerApellido`, `segundoNombre`, `segundoApellido`, `contrasena`, `direccion`, `telefono`, `dia_nacimiento`, `mes_nacimiento`, `anio_nacimiento`, `usuarioFB`) VALUES
-(0, 'johan', 'adn@xd.com', 'perez', 'alfonzo', NULL, 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980', '');
+(2, 'johana', 'adn@xd.com', 'perezs', 'rfgdgfdgfd', 'fqwqff', 'admin', 'cra2 no 77-90', '4754388', '4', '9', '1980', '');
 
 -- --------------------------------------------------------
 
@@ -228,12 +243,18 @@ CREATE TABLE `profesores_has_cursos` (
 --
 
 INSERT INTO `profesores_has_cursos` (`profesores_idprofesores`, `cursos_idcursos`, `salon`, `hora`) VALUES
-(0, 1, 'sierra - 104', '14:00'),
-(0, 2, 'sierra - 103', '13:00');
+(2, 1, 'sierra - 104', '14:00'),
+(2, 2, 'sierra - 103', '13:00');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`user`);
 
 --
 -- Indices de la tabla `cursos`
@@ -363,8 +384,8 @@ ALTER TABLE `mensaje_estudiante`
 -- Filtros para la tabla `profesores_has_cursos`
 --
 ALTER TABLE `profesores_has_cursos`
-  ADD CONSTRAINT `fk_profesores_has_cursos_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_profesores_has_cursos_profesores` FOREIGN KEY (`profesores_idprofesores`) REFERENCES `profesores` (`idprofesores`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_profesores_has_cursos_cursos1` FOREIGN KEY (`cursos_idcursos`) REFERENCES `cursos` (`idcursos`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_profesores_has_cursos_profesores` FOREIGN KEY (`profesores_idprofesores`) REFERENCES `profesores` (`idprofesores`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
