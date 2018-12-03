@@ -15,7 +15,7 @@
 	<table border="0" align="center" valign="middle">
 		<tr>
 		<td rowspan=2>
-		<form action="../admin/controller/controlador_login.php" method="post">
+		<form action="manejador.php" method="post">
 
 		<table border="0">
 

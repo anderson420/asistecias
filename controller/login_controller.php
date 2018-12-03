@@ -25,22 +25,21 @@
 		header("Location: ../view/usuarios_view.php");
 	} else{
 	
-	
+		echo '<script>  alert("CONTRSEÑA ERRONEA") ;document.getElementById("boton").onclick= function(e){ e.preventDefault()};  </script>';
 		
-	
-	$matrizUsuario = $usuario->getEstudiantes();
+	}
+	$matrizUsuarios = $usuario->getEstudiantes();
 	$id = $_POST['codigo'];
 	$pass = $_POST['pass'];
 
 	$encontro = False;
-	print_r($matrizUsuario);
-	foreach ($matrizUsuario as $key) {
-		if($key["idestudiantes"] == $id and $key['contrasena'] == $pass){
+
+	foreach ($matrizUsuarios as $registro) {
+		if($registro["idestudiantes"] == $id and $registro['contrasena'] == $pass){
 			session_start();
-			$_SESSION['usuario']= "XD";
-			$_SESSION['nombre'] = $key["primerNombre"];
-			$_SESSION['apellido'] = $key["primerApellido"];
-			$_SESSION['correo'] = $key["correo"];
+			$_SESSION['nombre'] = $registro["primerNombre"];
+			$_SESSION['apellido'] = $registro["primerApellido"];
+			$_SESSION['correo'] = $registro["correo"];
 			$_SESSION['id_usuario'] = $id ;
 			$_SESSION['logueado'] = true ;
 			$encontro = True;
@@ -49,10 +48,9 @@
 	}
 	if($encontro){
 		header("Location: ../view/estudiante_view.php");
-	}else {
-		echo '<script>alert("Usuario o Contraseña incorrecto")</script>';
-		echo "<script>location.href='../index.php'</script>";
 	}
-}
+	else{
+		echo '<script>  alert("CONTRSEÑA ERRONEA") ;document.getElementById("boton").onclick= function(e){ e.preventDefault()};  </script>';
+	}
 
 ?>

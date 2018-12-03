@@ -10,7 +10,6 @@
 			require_once("conexion.php");
 			$this->db = Conectar::conexion();
 			$this->usuarios = array();
-			$this->usuarios1 = array();
 		}
 		public function getListas($id){
 
@@ -77,10 +76,10 @@
 
 			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
 			{
-				$this->usuarios1[]=$filas;
+				$this->usuarios[]=$filas;
 			}
 
-			return $this->usuarios1;
+			return $this->usuarios;
 		}
 
 		public function get_cursos(){

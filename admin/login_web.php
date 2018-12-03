@@ -1,16 +1,8 @@
 <?php 
 session_start();
 
-require_once '../model/Profesor.php';
-require_once '../model/profesor.model.php';
-
-if($_SESSION['loggedin'] != true){
-
-  header('Location: ../index.php');
-
-
-}
-
+require_once 'Profesor.php';
+require_once 'profesor.model.php';
 
 // Logica
 $alm = new Profesor();
@@ -97,8 +89,8 @@ if(isset($_REQUEST['action']))
 <body>
 <div class="container">
     <div class="row"></div>
-    <a >ADMINISTRADOR DEL SITIO</a>
-    <a class="right" href="../controller/logout.php">Cerrar Sesión </a>   
+    <a href="./../admin/manejador.php">ADMINISTRADOR DEL SITIO</a>
+    <a class="right" href="logout.php">Cerrar Sesión </a>   
     <div class="row">
         <h3>Administración de profesores registrados</h3>    
         <div class="well well-small">

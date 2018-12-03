@@ -44,7 +44,7 @@ if(!isset($_SESSION['usuario'])){
                         <img class="responsive-img" src="../img/boy.png"/>
                     </div>
                     <div class="col s6">
-
+                    <?php session_start(); ?>
                         <h5>Nombres: <strong> <?php echo $_SESSION['nombre']; ?></strong></h5>
                         <h5>Apellido: <strong> <?php echo $_SESSION['apellido']; ?></strong></h5>
                         <h5>Correo: <strong> <?php echo $_SESSION['correo']; ?></strong></h5>
