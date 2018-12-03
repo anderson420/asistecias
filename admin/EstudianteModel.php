@@ -6,7 +6,7 @@ class EstudianteModel
     {
         try
         {
-            $this->pdo = new PDO('mysql:host=sql307.epizy.com; dbname=epiz_23091224_asistencia', 'epiz_23091224', '6bnlY6g5A8udN');
+            $this->pdo = new PDO('mysql:host=localhost;dbname=asistencia', 'root', '');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);         
         }
         catch(Exception $e)
