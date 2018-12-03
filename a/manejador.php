@@ -42,9 +42,6 @@
 
       $sql = "SELECT * FROM admin WHERE user = '$username'";
       $result = $conexion->query($sql);
-      if ($result->num_rows > 0) {
-
-      }
       $row = $result->fetch_assoc();
       if ($password == $row['password']) {
           $_SESSION['loggedin'] = true;
