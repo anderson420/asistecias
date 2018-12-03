@@ -1,13 +1,13 @@
 <?php
     session_start();
-
+ /*
       $host_db = "localhost";
       $user_db = "root";
       $pass_db = "";
       $db_name = "asistencia";
 
-      $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
+      $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);*/
+      $conexion = new PDO('mysql:host=sql307.epizy.com; dbname=epiz_23091224_asistencia', 'epiz_23091224', '6bnlY6g5A8udN');
       if ($conexion->connect_error) {
         die("La conexion falló: " . $conexion->connect_error);
       }

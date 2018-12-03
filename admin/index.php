@@ -25,8 +25,11 @@
 			<td witdh=80><input style="border-radius:15px;" type="password" name="password"></td></tr>
 		<tr><td></td>
 			<td width=80 align=center><input class="btn btn-primary" type="submit" value="Aceptar"></td>
-			</tr></tr></table>
+			</tr></tr>
+			
+			</table>
 		</form>
+		<a href="../index.php">login profesores/estudiantes</a>
 <br>
 </div>	
 </body>
