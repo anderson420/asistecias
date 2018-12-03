@@ -64,6 +64,40 @@
                 <button type="submit" class="waves-effect waves-light btn">Enviar</button>
                   
          </form>   
+
+         <div>
+         <?php
+     
+         require_once("../model/usuarios_model.php");
+         $usuario = new Usuarios_model();
+         $result=$usuario->getcurso($_SESSION['id_usuario'] );
+
+
+         ?>
+         <table>
+        <thead>
+          <tr>
+              <th>Nombre Materia</th>
+              <th>hora</th>
+              <th>salon</th>
+              <th>Profesor</th>
+
+          </tr>
+        </thead>
+        <tbody>
+       
+          <?php foreach($result as $key ):  ?>
+          <tr>
+            <td><?php echo $key['nombre']; ?></td>
+            <td><?php echo $key['hora']; ?></td>
+            <td><?php echo $key['salon']; ?></td>
+            <td><?php echo $key['primerNombre']; echo ' ' ;echo $key['primerApellido']; ?></td>
+          </tr>
+          <?php endforeach;  ?>
+        </tbody>
+      </table>
+
+         </div>
     </div>
 </body>
 <footer class="page-footer">

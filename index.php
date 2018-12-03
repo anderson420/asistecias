@@ -19,6 +19,7 @@
 			<p>Contraseña</p>
 			<input type="password" name="pass" placeholder="Ingrese la contraseña">
 			<input type="submit" value="Ingresar" id="boton">
+			<a	href='../asistecias/admin/index.php'>login administrador</a>
 		</form>
 	</div>
 </body>
