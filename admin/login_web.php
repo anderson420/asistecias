@@ -92,12 +92,11 @@ if(isset($_REQUEST['action']))
     <a href="./../admin/manejador.php">ADMINISTRADOR DEL SITIO</a>
     <a class="right" href="logout.php">Cerrar Sesión </a>   
     <div class="row">
-        <div class="caption">
         <h3>Administración de profesores registrados</h3>    
         <div class="well well-small">
         <hr class="soft"/>
         <h4>Tabla de Profesores</h4>
-        <table class="pure-table pure-table-horizontal tableCenter">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -138,7 +137,6 @@ if(isset($_REQUEST['action']))
             <?php endforeach; ?>
         </table> 
         <br><br><h2><strong>Insertar un usuario</strong></h2>
-        <div class="row-fluid">
             <form action="?action=<?php echo $alm->idprofesores > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" >
             <input type="hidden" name="idprofesores" value="<?php echo $alm->__GET('idprofesores'); ?>" />  
                 <div class="row">
@@ -192,11 +190,7 @@ if(isset($_REQUEST['action']))
                 </div>
                 <button type="submit" class="waves-effect waves-light btn">Guardar</button>
                 </div>
-                
             </form>
-        <div class="span8">
-        </div>  
-        </div>
         <div>
             <a href="index.estudiante.php"><button class="right waves-effect waves-light btn">CRUD estudiantes</button></a>
         </div>
