@@ -65,93 +65,86 @@ echo "<a  href=logout.php>Cerrar Sesion X </a>";
 <html lang="es">
     <head>
         <title>web</title>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body class="body">
-        <header>
-            <h1>CRUD DE ESTUDIANTES</h1>
-        </header>
+    <div class="container">
+        <h3>CRUD DE ESTUDIANTES</h3>    
+        <hr class="soft"/>
+        <h4>Insertar tabla de estudiantes</h4> 
+        <form action="?action=<?php echo $alm->idEstudiante > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" >
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="idEstudiante" value="<?php echo $alm->__GET('idEstudiante'); ?>"  />
+                    <label for="idEstudiantes">Id del estudiantes</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="password" value="<?php echo $alm->__GET('password'); ?>"  />
+                    <label for="password">Contraseña</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="primerNombre" value="<?php echo $alm->__GET('primerNombre'); ?>"  />
+                    <label for="primerNombre">El primer nombre</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="segundoNombre" value="<?php echo $alm->__GET('segundoNombre'); ?>"  />
+                    <label for="segundoNombre">El segundo nombre</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="primerApellido" value="<?php echo $alm->__GET('primerApellido'); ?>"  />
+                    <label for="segundoNombre">El segundo nombre</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="segundoApellido" value="<?php echo $alm->__GET('segundoApellido'); ?>"  />
+                    <label for="segundoApellido">Segundo apellido</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="correo" value="<?php echo $alm->__GET('correo'); ?>"  />
+                    <label for="correo">Correo</label>
+                </div>
+                <div class="input-field col s6">
+                    <button type="submit" class="waves-effect waves-light btn right">Guardar</button>
+                </div>
+            </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-12">
-                
-                <form action="?action=<?php echo $alm->idEstudiante > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" >
-                    <input type="hidden" name="idEstudiantes" value="<?php echo $alm->__GET('idEstudiante'); ?>" />
-                    
-                    <table >
-                        <tr>
-                            <th >idEstudiante</th>
-                            <td><input type="text" name="idEstudiante" value="<?php echo $alm->__GET('idEstudiante'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >password</th>
-                            <td><input type="text" name="password" value="<?php echo $alm->__GET('password'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >primerNombre</th>
-                            <td><input type="text" name="primerNombre" value="<?php echo $alm->__GET('primerNombre'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >segundoNombre</th>
-                            <td><input type="text" name="segundoNombre" value="<?php echo $alm->__GET('segundoNombre'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >primerApellido</th>
-                            <td><input type="text" name="primerApellido" value="<?php echo $alm->__GET('primerApellido'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >segundoApellido</th>
-                            <td><input type="text" name="segundoApellido" value="<?php echo $alm->__GET('segundoApellido'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <th >correo</th>
-                            <td><input type="text" name="correo" value="<?php echo $alm->__GET('correo'); ?>"  /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <button type="submit" class="pure-button pure-button-primary">Guardar</button>
-                            </td>
-                        </tr>
-                        
-                    </table>
-                </form>
+        </form>
 
-                <table class="pure-table pure-table-horizontal">
-                    <thead>
-                        <tr>
-                            <th >idEstudiante</th>
-                            <th >password</th>
-                            <th >primerNombre</th>
-                            <th >segundoNombre</th>
-                            <th>primerApellido</th>
-                            <th>segundoApellido a</th>
-                            <th>correo</th>
-                            <th>editar</th>
-                            <th>eliminar</th>
-                        </tr>
-                    </thead>
-                    <?php foreach($model->Listar() as $r): ?>
-                        <tr>
-                            <td><?php echo $r->__GET('idEstudiante'); ?></td>
-                            <td><?php echo $r->__GET('password'); ?></td>
-                            <td><?php echo $r->__GET('primerNombre'); ?></td>
-                            <td><?php echo $r->__GET('segundoNombre'); ?></td>
-                            <td><?php echo $r->__GET('primerApellido'); ?></td>
-                            <td><?php echo $r->__GET('segundoApellido'); ?></td>
-                            <td><?php echo $r->__GET('correo'); ?></td>
-                            <td>
-                                <a href="?action=editar&idestudiante=<?php echo $r->idEstudiante; ?>">Editar</a>
-                            </td>
-                            <td>
-                                <a href="?action=eliminar&idestudiante=<?php echo $r->idEstudiante; ?>">Eliminar</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>     
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th >idEstudiante</th>
+                <th >password</th>
+                <th >primerNombre</th>
+                <th >segundoNombre</th>
+                <th>primerApellido</th>
+                <th>segundoApellido a</th>
+                <th>correo</th>
+                <th>editar</th>
+                <th>eliminar</th>
+            </tr>
+        </thead>
+        <?php foreach($model->Listar() as $r): ?>
+            <tr>
+                <td><?php echo $r->__GET('idEstudiante'); ?></td>
+                <td><?php echo $r->__GET('password'); ?></td>
+                <td><?php echo $r->__GET('primerNombre'); ?></td>
+                <td><?php echo $r->__GET('segundoNombre'); ?></td>
+                <td><?php echo $r->__GET('primerApellido'); ?></td>
+                <td><?php echo $r->__GET('segundoApellido'); ?></td>
+                <td><?php echo $r->__GET('correo'); ?></td>
+                <td>
+                    <a href="?action=editar&idestudiante=<?php echo $r->idEstudiante; ?>">Editar</a>
+                </td>
+                <td>
+                    <a href="?action=eliminar&idestudiante=<?php echo $r->idEstudiante; ?>">Eliminar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </table>     
               
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     </body>
 </html>
