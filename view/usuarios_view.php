@@ -100,7 +100,7 @@
 		  <label>Seleccione el curso</label>
 		</div>
       
-        <button id="datata" type="submit" class="waves-effect waves-light btn">Enviar</button>
+        <button id="datata" type="submit" class="waves-effect waves-light btn">Ver Asistencias En Datables</button>
 	</div>
     <div id="respuestaajax"></div>
     <h6>
