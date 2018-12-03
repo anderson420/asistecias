@@ -11,6 +11,54 @@
 			$this->db = Conectar::conexion();
 			$this->usuarios = array();
 		}
+		public function getListas($id){
+
+			$consulta = $this->db->query("SELECT*FROM lista_asistencia inner join cursos on lista_asistencia.cursos_idcursos=cursos.idcursos where cursos_idcursos = $id ;");
+
+			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}
+
+			return $this->usuarios;
+		}
+		 public function getcurso($id){
+			$consulta = $this->db->query("SELECT * FROM estudiantes inner join cursos_has_estudiantes on estudiantes.idestudiantes=cursos_has_estudiantes.estudiantes_idestudiantes inner join cursos on cursos.idcursos=cursos_has_estudiantes.cursos_idcursos	inner join profesores_has_cursos on cursos.idcursos = profesores_has_cursos.cursos_idcursos inner join profesores on profesores.idprofesores = profesores_has_cursos.profesores_idprofesores where estudiantes.idestudiantes =$id ;");
+			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}
+
+			return $this->usuarios;
+
+		 }
+
+		public function ingresarComentario($comentario,$id_curso){
+			
+			try 
+			{
+				$sql = "INSERT INTO comentario (id_curso, comenatrio) VALUES (?, ?);";
+	
+				$this->db->prepare($sql)
+					 ->execute(
+					array(
+						$id_curso,
+						$comentario
+						
+						)
+					);
+			} catch (Exception $e) 
+			{
+				die($e->getMessage());
+			}
+
+			/*while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}*/
+
+			return "exito";
+		}
 
 		public function getUsuarios(){
 			$consulta = $this->db->query("SELECT * FROM profesores");
@@ -24,7 +72,7 @@
 		}
 
 		public function getEstudiantes(){
-			$consulta = $this->db->query("SELECT * FROM estudiantes");
+			$consulta = $this->db->query("SELECT * FROM estudiantes ");
 
 			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
 			{

@@ -41,6 +41,7 @@
 			$_SESSION['apellido'] = $registro["primerApellido"];
 			$_SESSION['correo'] = $registro["correo"];
 			$_SESSION['id_usuario'] = $id ;
+			$_SESSION['logueado'] = true ;
 			$encontro = True;
 			break;
 		}

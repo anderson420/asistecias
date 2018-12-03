@@ -11,7 +11,7 @@
 			$this->db = Conectar::conexion();
 			$this->estudiantes = array();
 		}
-
+		
 		public function get_estudiantes(){
 			$consulta = $this->db->query("SELECT * FROM estudiantes");
 
