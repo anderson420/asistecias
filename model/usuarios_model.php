@@ -11,6 +11,32 @@
 			$this->db = Conectar::conexion();
 			$this->usuarios = array();
 		}
+		public function ingresarComentario($comentario,$id_curso){
+			
+			try 
+			{
+				$sql = "INSERT INTO comentario (id_curso, comenatrio) VALUES (?, ?);";
+	
+				$this->db->prepare($sql)
+					 ->execute(
+					array(
+						$id_curso,
+						$comentario
+						
+						)
+					);
+			} catch (Exception $e) 
+			{
+				die($e->getMessage());
+			}
+
+			/*while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}*/
+
+			return "exito";
+		}
 
 		public function getUsuarios(){
 			$consulta = $this->db->query("SELECT * FROM profesores");
