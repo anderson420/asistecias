@@ -11,49 +11,6 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body onload="">
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        appId      : '284778465545572',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.2'
-        });
-        
-        FB.AppEvents.logPageView();   
-        
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    
-    function login(response){
-		if("connected" == response.status){
-			console.log(response.authResponse.userID);
-			$.post("controller/login_controller.php",
-			{
-				usuarioFB: response.authResponse.userID
-			},
-			function(data, status){
-				if(data == 1){
-					location.href ="view/usuarios_view.php";
-				}else{
-					M.toast({html: 'No hay usuario con ese facebook.'});
-				}
-			});
-		}
-    }
-	function checkLoginState() {
-		FB.getLoginStatus(function(response) {
-			login(response);
-		});
-	}
-    </script>
 	<div id="espacioLogin">
 		<img src="img/login1.png" id="imagenLogin">
 		<form action="controller/login_controller.php" method="POST">
@@ -63,10 +20,6 @@
 			<input type="password" name="pass" placeholder="Ingrese la contraseña">
 			<input type="submit" value="Ingresar" id="boton">
 		</form>
-		<fb:login-button 
-			scope="public_profile,email"
-			onlogin="checkLoginState();">
-		</fb:login-button>
 	</div>
 </body>
 </html>
