@@ -25,27 +25,5 @@
        
       }
      mysqli_close($conexion); 
-
-
-	require_once("../../model/usuarios_model.php");
-	require_once("usuario_controller.php");
-
-	$usuario = new Usuarios_model();
-	$matrizUsuarios = $usuario->getUsuarios();
-
-  $username = $_POST['usuario'];
-  $password = $_POST['password'];
-	$encontro = False;
-
-	foreach ($matrizUsuarios as $registro) {
-		if($registro["idprofesores"] == $id and $registro['contrasena'] == $pass){
-			$usuario1 = new usuario($registro["idprofesores"], $registro["primerNombre"], $registro["segundoNombre"], $registro["primerApellido"], $registro["segundoApellido"], $registro["contrasena"], $registro["direccion"], $registro["telefono"], $registro["email"], $registro["dia_nacimiento"], $registro["mes_nacimiento"], $registro["anio_nacimiento"]);
-			session_start();
-			$_SESSION['usuario'] = serialize($usuario1);
-			$_SESSION['id_usuario'] = $id ;
-			$encontro = True;
-			break;
-		}
-	}
     
     ?>
