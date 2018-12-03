@@ -1,9 +1,14 @@
 <?php 
 session_start();
+if($_SESSION['loggedin'] != true){
 
+    header('Location: ../index.php');
+  
+  
+  }
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-require_once 'EstudianteModel.php';
-require_once 'Estudiante.php';
+require_once '../model/EstudianteModel.php';
+require_once '../model/Estudiante.php';
 
 // Logica
 $alm = new Estudiante();
@@ -56,7 +61,7 @@ if(isset($_REQUEST['action']))
             break;
     }
 }
-echo "<a  href=logout.php>Cerrar Sesion X </a>";
+echo "<a  href=../controller/logout.php>Cerrar Sesion X </a>";
 }
 
 
@@ -92,7 +97,7 @@ echo "<a  href=logout.php>Cerrar Sesion X </a>";
                 </div>
                 <div class="input-field col s6">
                     <input type="text" name="primerApellido" value="<?php echo $alm->__GET('primerApellido'); ?>"  />
-                    <label for="segundoNombre">El segundo nombre</label>
+                    <label for="segundoNombre">El primer Apellido</label>
                 </div>
                 <div class="input-field col s6">
                     <input type="text" name="segundoApellido" value="<?php echo $alm->__GET('segundoApellido'); ?>"  />
