@@ -84,58 +84,34 @@ if(isset($_REQUEST['action']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="LZ">
-
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
-<body data-offset="40" background="images/fondotot.jpg" class="body">
+<body>
 <div class="container">
-<header class="header">
-
-</header>
-
-<div class="navbar">
-  <div class="navbar-inner">
-    <div class="container">
-      <div class="nav-collapse">
-        <ul class="nav">
-            <li class=""><a href="">ADMINISTRADOR DEL SITIO</a></li>
-        </ul>
-        <ul class="nav pull-right">
-        <li><a href=""></strong> </a></li>
-              <li><a href="logout.php"> Cerrar Sesión </a></li>          
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-        
-    <div class="span12">
-
+    <div class="row"></div>
+    <a href="./../admin/manejador.php">ADMINISTRADOR DEL SITIO</a>
+    <a class="right" href="logout.php">Cerrar Sesión </a>   
+    <div class="row">
         <div class="caption">
-        
-        <h2>Administración de profesores registrados</h2>    
+        <h3>Administración de profesores registrados</h3>    
         <div class="well well-small">
         <hr class="soft"/>
         <h4>Tabla de Profesores</h4>
         <table class="pure-table pure-table-horizontal tableCenter">
             <thead>
                 <tr>
-                  
-                    <th >idprofesores</th>
-                    <th >primerNombre</th>
-                    <th >email</th>
-                    <th >primerApellido</th>
-                    <th>segundoNombre</th>
-                    <th>segundoApellido</th>  
-                    <th >contrasena</th>
-                    <th >direccion</th>
-                    <th >telefono</th>
-                    <th >dia_nacimiento</th>
-                    <th>mes_nacimiento</th>
-                    <th>anio_nacimiento</th>
+                    <th>ID</th>
+                    <th>primer Nombre</th>
+                    <th>email</th>
+                    <th>primer Apellido</th>
+                    <th>segundo Nombre</th>
+                    <th>segundo Apellido</th>  
+                    <th>contraseña</th>
+                    <th>dirección</th>
+                    <th>telefono</th>
+                    <th>dia</th>
+                    <th>mes</th>
+                    <th>año</th>
                 </tr>
             </thead>
             <?php foreach($model->Listar() as $r): ?>
@@ -164,78 +140,74 @@ if(isset($_REQUEST['action']))
         <br><br><h2><strong>Insertar un usuario</strong></h2>
         <div class="row-fluid">
             <form action="?action=<?php echo $alm->idprofesores > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" >
-            <input type="hidden" name="idprofesores" value="<?php echo $alm->__GET('idprofesores'); ?>" />
-                <table >
-                    <tr>
-                        <th >idprofesores: </th>
-                        <td><input type="text" name="idprofesores" value="<?php echo $alm->__GET('idprofesores'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >primerNombre: </th>
-                        <td><input type="text" name="primerNombre" value="<?php echo $alm->__GET('primerNombre'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >email: </th>
-                            <td><input type="text" name="email" value="<?php echo $alm->__GET('email'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >primerApellido: </th>
-                            <td><input type="text" name="primerApellido" value="<?php echo $alm->__GET('primerApellido'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >segundoNombre: </th>
-                            <td><input type="text" name="segundoNombre" value="<?php echo $alm->__GET('segundoNombre'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >segundoApellido: </th>
-                        <td><input type="text" name="segundoApellido" value="<?php echo $alm->__GET('segundoApellido'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >contrasena: </th>
-                        <td><input type="text" name="contrasena" value="<?php echo $alm->__GET('contrasena'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >direccion: </th>
-                            <td><input type="text" name="direccion" value="<?php echo $alm->__GET('direccion'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >telefono: </th>
-                        <td><input type="text" name="telefono" value="<?php echo $alm->__GET('telefono'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >dia_nacimiento: </th>
-                        <td><input type="text" name="dia_nacimiento" value="<?php echo $alm->__GET('dia_nacimiento'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >mes_nacimiento: </th>
-                            <td><input type="text" name="mes_nacimiento" value="<?php echo $alm->__GET('mes_nacimiento'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <th >anio_nacimiento: </th>
-                            <td><input type="text" name="anio_nacimiento" value="<?php echo $alm->__GET('anio_nacimiento'); ?>"  /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button type="submit" class="pure-button pure-button-primary">Guardar</button>
-                        </td>
-                    </tr>
-                </table>
+            <input type="hidden" name="idprofesores" value="<?php echo $alm->__GET('idprofesores'); ?>" />  
+                <div class="row">
+                <div class="col s6 input-field">
+                    <input type="text" name="idprofesores" value="<?php echo $alm->__GET('idprofesores'); ?>"  />
+                    <label for="idprofesores">ID de profesores</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="primerNombre" value="<?php echo $alm->__GET('primerNombre'); ?>"  />
+                    <label for="primerNombre">Primer nombre del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="email" value="<?php echo $alm->__GET('email'); ?>"  />
+                    <label for="email">Correo del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="primerApellido" value="<?php echo $alm->__GET('primerApellido'); ?>"  />
+                    <label for="primerApellido">Apellido del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="segundoNombre" value="<?php echo $alm->__GET('segundoNombre'); ?>"  />
+                    <label for="segundoNombre">Segundo nombre del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="segundoApellido" value="<?php echo $alm->__GET('segundoApellido'); ?>"  />
+                    <label for="segundoApellido">Segundo apellido del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="contrasena" value="<?php echo $alm->__GET('contrasena'); ?>"  />
+                    <label for="contrasena">Contraseña del profesor</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="direccion" value="<?php echo $alm->__GET('direccion'); ?>"  />
+                    <label for="direccion">Dirección</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="telefono" value="<?php echo $alm->__GET('telefono'); ?>"  />
+                    <label for="telefono">Telefono</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="dia_nacimiento" value="<?php echo $alm->__GET('dia_nacimiento'); ?>"  />
+                    <label for="dia_nacimiento">Día del nacimiento</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="mes_nacimiento" value="<?php echo $alm->__GET('mes_nacimiento'); ?>"  />
+                    <label for="mes_nacimiento">Mes del nacimiento</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input type="text" name="anio_nacimiento" value="<?php echo $alm->__GET('anio_nacimiento'); ?>"  />
+                    <label for="mes_nacimiento">Año del nacimiento</label>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn">Guardar</button>
+                </div>
+                
             </form>
         <div class="span8">
         </div>  
         </div>
         <div>
-            <a href="index.estudiante.php"><button class="pure-button pure-button-primary">CRUD estudiantes</button></a>
+            <a href="index.estudiante.php"><button class="right waves-effect waves-light btn">CRUD estudiantes</button></a>
         </div>
         <br/>
-
         </div>
         </div>
 
     </div>
 </div>
     <script src="bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </style>
   </body>
 </html>
