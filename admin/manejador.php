@@ -13,6 +13,7 @@
 <body data-offset="40" background="images/fondotot.jpg" class="body">
 <div class="container">
 <header class="header">
+
 </header>
 <div class="navbar">
   <div class="navbar-inner">
