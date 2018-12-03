@@ -11,6 +11,18 @@
 			$this->db = Conectar::conexion();
 			$this->usuarios = array();
 		}
+		public function getListas($id){
+
+			$consulta = $this->db->query("SELECT*FROM lista_asistencia inner join cursos on lista_asistencia.cursos_idcursos=cursos.idcursos where cursos_idcursos = $id ;");
+
+			while($filas=$consulta->fetch(PDO::FETCH_ASSOC))
+			{
+				$this->usuarios[]=$filas;
+			}
+
+			return $this->usuarios;
+		}
+
 		public function ingresarComentario($comentario,$id_curso){
 			
 			try 

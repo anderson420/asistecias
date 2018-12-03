@@ -99,10 +99,21 @@
 		  </select>
 		  <label>Seleccione el curso</label>
 		</div>
+      
+        <button id="datata" type="submit" class="waves-effect waves-light btn">Enviar</button>
 	</div>
     <div id="respuestaajax"></div>
     <h6>
         <script>
+            $("#datata").click(function(){
+                var id_curso=$("#id_curso").val();
+                if(id_curso!=''){
+                    location.href ="../view/datatable.php"+'?id_curso='+id_curso;
+            
+                }
+            } )
+
+
             DameLaFechaHora();
 			$('select').formSelect();
         </script>
