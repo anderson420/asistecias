@@ -1,0 +1,20 @@
+.body{
+	background: #b7b0b0;
+	font-size: 1em;
+	font-family: arial;
+
+}
+
+.tableCenter {
+	margin: 0, auto;
+}
+
+header{
+	margin: 0;
+	background: #2E2EFE;	
+	color:#FE2E2E;
+	text-align: center; 
+	position: 1em 0;
+	border-bottom: 5px solid #000;
+}
+
